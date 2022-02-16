@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>We3 Learning Platform</title>
+</head>
+<link rel="stylesheet" href="CSS/style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">"
+<style>
+    body{
+    margin: 0px;
+    padding: 0px;
+    background: url('images/1.jpg');
+    background-position:center;
+    background-size: 2160px 1080px;
+    background-repeat: no-repeat;
+    width: 1440px;
+    height: 960px;
+    color: aliceblue;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+.left{
+    margin: auto;
+    position: absolute;
+    left: 4px;
+    top: 36px;
+    display: inline-block;
+}
+.right{
+    position: absolute;
+    right: 0px;
+    top: 6px;
+    display: inline-block;
+    
+}
+
+.center{
+    margin: 12px auto; 
+    display: block;
+    width: 48%;
+
+}
+.navbar{
+    display: inline-block;
+    text-align: center;
+}
+
+.navbar li{
+    display: inline-block;
+    font-size: 25px;
+    
+   
+} 
+
+.navbar li a{
+    color: aqua;
+    text-decoration: none;
+    padding: 24px 24px;
+    align-content: center;
+}
+
+.navbar li a.active{
+    color: ghostwhite;
+    background-color: rgba(62, 212, 199, 0.699);
+    border-radius: 14px;
+    }
+.navbar li a:hover{
+    text-decoration: underline;
+    color: ghostwhite;
+    background-color: rgb(10, 10, 35);
+    border-radius: 14px;
+    border-style: dotted; 
+    border-width: 3px; 
+}
+
+.right img{
+    width: 120px;
+    height: 120px;
+    border-radius: 10px;
+    
+} 
+
+.right div{
+    text-align: center;
+}
+
+.btn{
+    margin: 12px 14 px;
+    background-color: rgb(10, 10, 35);
+    color: rgb(15, 127, 127);
+    padding: 18px 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 17px;
+}
+
+.btn:hover{
+    filter: invert(100%);
+}
+
+.container {
+    border: 6px rgba(0, 255, 255, 0.438) solid;
+    margin: 60px auto;
+    padding: 35px 70px;
+    width: 40%;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.form-group input{
+    text-align: center;
+    display: block;
+    width: 90%;
+    padding: 32px 7px;
+    margin: 14px auto;
+    border: 2px salmon solid;
+    border-radius: 15px;
+    font-family:'Roboto Condensed', sans-serif;
+    font-size: larger;
+    font-weight:bolder;
+}
+
+.container h1{
+    text-align: center;
+    margin-bottom: 45px;
+    margin-top: 15px;
+}
+
+.container button{
+    display: block;
+    margin: 25px auto;
+    width: 94%;
+}
+
+
+</style>
+<body>
+    <header class="header">
+        <div class="left">
+            <!-- Left box for Menu/Buttons -->
+            <button class="btn">Call Us Now</button>
+            <button class="btn">Email Us</button>
+            
+</div>
+<div class="center">
+    <ul class="navbar">
+        <li><a href="#" >Home</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Our Team</a></li>
+        <li><a href="#" class="active">Register Now</a></li>
+    </ul>
+    <!--Center box for navigation -->
+</div>
+<div class="right">
+    <!-- Right box for logo -->
+        <img src="images/We3_App_Icon.png" alt="">
+    <div>734 Enterprises</div>
+</div>
+          </header>
+          <div class="container">
+        <h1>Welcome to India's first Metaverse Design and Education Portal.</h1>
+        <form action="noaction.php"> 
+<!--just random backend file cuz abhi back end nhi seekha hai -->
+<div class="form-group">
+    <input type="text" name="" placeholder="Enter your name">
+</div>
+<div class="form-group">
+    <input type="text" name="" placeholder="Enter your age">
+</div>
+<div class="form-group">
+    <input type="text" name="" placeholder="City of Residence">
+</div>
+<div class="form-group">
+    <input type="text" name="" placeholder="How did you come to know about us?">
+</div>
+</form>
+ <button class="btn" id="Sb">Submit now</button>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="../static/styles/trackgrievance.css"> 
+    <link rel="stylesheet" href="../static/styles/navbar.css">
+    <script src="../static/scripts/navbar.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../static/scripts/feedback.js" defer></script>
+    <script src="../static/scripts/statusbar.js" defer></script>
+  </head>
+  <body>
+    <img src="../static/images/bgvector2.png" id="bgimg">
+    <nav class="navbar">
+      <div class="logo">
+          <img src="../static/images/Logo2.png">
+          <p1>Grievance &nbsp</p1> <p2>Portal</p2>
+      </div>
+      <a href="#" class="toggle">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+      </a>
+      <div class="navbar-links">
+          <ul>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Support</a></li>
+              <li><a href="index">Logout</a></li>
+          </ul>
+      </div>
+  </nav>
+  <div class="invis"><%=result[0].solved%></div>
+  <div class="invis"><%=result[0].seen%></div>
+  <div class="container">
+    <div class="blocker" onclick="closeFeedback()"></div>
+    <div class="feedback_window">
+        <div class="title1">Feedback</div>
+        <div class="formcontainer">
+            <div class="left">
+                <h4>Complain satisfaction rating: </h4>
+                <div class="space"></div>
+                <h4>Officer satisfaction rating: </h4>
+                <div class="space"></div>
+                <h4>Overall satisfaction rating: </h4>
+                <div class="space"></div>
+                <h4>Other Feedback</h4>
+            </div>
+            <form action="final_feedback" method="post">
+                <div class="right">
+                    <div class="space05"></div>
+                    <div id="container1">
+                        <div class="rate1">
+                            <input type="radio" id="star15" name="rate1" value="5" />
+                            <label for="star15" title="text">5 stars</label>
+                            <input type="radio" id="star14" name="rate1" value="4" />
+                            <label for="star14" title="text">4 stars</label>
+                            <input type="radio" id="star13" name="rate1" value="3" />
+                            <label for="star13" title="text">3 stars</label>
+                            <input type="radio" id="star12" name="rate1" value="2" />
+                            <label for="star12" title="text">2 stars</label>
+                            <input type="radio" id="star11" name="rate1" value="1" />
+                            <label for="star11" title="text">1 star</label>
+                          </div>
+                    </div>
+                    <div class="space05"></div>
+                    <div id="container2">
+                        <div class="rate2">
+                            <input type="radio" id="star25" name="rate2" value="5" />
+                            <label for="star25" title="text">5 stars</label>
+                            <input type="radio" id="star24" name="rate2" value="4" />
+                            <label for="star24" title="text">4 stars</label>
+                            <input type="radio" id="star23" name="rate2" value="3" />
+                            <label for="star23" title="text">3 stars</label>
+                            <input type="radio" id="star22" name="rate2" value="2" />
+                            <label for="star22" title="text">2 stars</label>
+                            <input type="radio" id="star21" name="rate2" value="1" />
+                            <label for="star21" title="text">1 star</label>
+                          </div>
+                    </div>
+                    <div class="space05"></div>
+                    <div id="container3">
+                        <div class="rate3">
+                            <input type="radio" id="star35" name="rate3" value="5" />
+                            <label for="star35" title="text">5 stars</label>
+                            <input type="radio" id="star34" name="rate3" value="4" />
+                            <label for="star34" title="text">4 stars</label>
+                            <input type="radio" id="star33" name="rate3" value="3" />
+                            <label for="star33" title="text">3 stars</label>
+                            <input type="radio" id="star32" name="rate3" value="2" />
+                            <label for="star32" title="text">2 stars</label>
+                            <input type="radio" id="star31" name="rate3" value="1" />
+                            <label for="star31" title="text">1 star</label>
+                          </div>
+                    </div>
+                    <div class="space"></div>
+                    <input type="text" id="textinput" name="feedback_text" placeholder="500 characters">
+                    <div class="space05"></div>
+                    <input type="submit" id="submit" value="Submit">
+                </div>
+            </form>
+        </div>
+        
+    </div>
+    <div id="left">
+        <div class="title1">Grievance Status</div>
+        <div class="input-box">
+            <div class="col1">
+                <div class="title">Complain Details</div>
+                <div class="bigspace"></div>
+                <h4>Grievance number:</h4>
+                <div class="space2"></div>
+                <h4>Status:</h4>
+                <div class="space2"></div><br>
+                <div class="bigspace"></div><br>
+                <h4>Department:</h4>
+                <div class="space2"></div>
+                <!-- <h4>Grievance Category:</h4>
+                <div class="space2"></div> -->
+                <h4>Application Details:</h4>
+                <div class="space2"></div>
+                <div class="field" id="widefield"><%= result[0].complaint_description%></div>
+                <div class="space3"></div>
+                <!-- <div class="space3"></div>
+                <h4>View Uploaded Files:</h4> -->
+                <div class="space2"></div>
+                <h4>Concerned Officer:</h4>
+                <div class="space2"></div>
+                <h4>Officer Response:</h4>
+                <% result[0].officer_response.split("#").forEach(element=>{ 
+                    if(element != "First"){%>
+                    <div class="space2"></div> 
+                    <div class="field" id="widefield"><%= element%></div>
+                <% }}) %>
+                
+              
+            </div>
+            <div class="col2">
+                <div class="bigspace"></div>
+                <div class="field"><%= result[0].complaint_id%></div>
+                <div class="space"></div>
+                <div class="statusbar">
+                    <div class="statusbarcontainer">
+                        <div id="statusbarbg"></div>
+                        <div class="circle1"></div>
+                        <div class="circle2"></div>
+                        <div class="circle3"></div>
+                    </div>                    
+                    <div class="status">
+                        <div class="field1">Unseen</div>
+                        <div class="space"></div>
+                        <div class="field2">In-Progress</div>
+                        <div class="space"></div>
+                        <div class="field3">Solved</div>
+                    </div>
+                </div>
+                <div class="space"></div>
+                <div class="space"></div>
+                <div class="field"><%= result[0].department_name%></div>
+                <!-- <div class="space"></div>
+                <div class="field"></div> -->
+                <div class="bigspace"></div><br><div class="space"></div><br><br><br><br><br>
+                <!-- <div class="field">Grievance number.</div>
+                <div class="space"></div> -->
+                <div class="field"><%= encoding[result2[0].lvl - 1] %></div>
+            </div>
+        </div>
+    </div>
+    <div id="right">
+        <div class="title1">Action</div>
+        <div class="space"></div>
+        <form action="user_response" method="post">
+            <h4>Send Message</h4>
+            <div class="space"></div>
+            <input type="hidden" name="com_id" value="<%= result[0].complaint_id%>">
+            <input type="text" name="response" id="tallField" placeholder="Enter message" required>
+            <div class="space"></div>
+            <input type="submit" name="submit" value="Send">
+        </form> 
+        <div class="space"></div>
+        <button class="feedback" onclick="openFeedback()">Submit a feedback</button>
+    </div>
+  </div>
+  </body>
+</html>
+

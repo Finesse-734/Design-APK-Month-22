@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="..\static\styles\navbar.css">
+        <link rel = "stylesheet" href="..\static/styles/userHome.css">
+        <script src="../static/scripts/navbar.js" defer></script>
+        <script src="../static/scripts/userHome.js" defer></script>
+        <title>Grievance Portal</title>
+    </head>
+
+    <body>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="..\static/images/Logo2.png">
+                <p1>Grievance &nbsp</p1> <p2>Portal</p2>
+            </div>
+            <a href="#" class="toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </a>
+            <div class="navbar-links">
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Support</a></li>
+                    <li><a href="index">Logout</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="row">
+            <div class="col1">
+                <!-- <div class="box1">
+                    <H1>Solutions To All Your Grievances <br> In One Place.</H1>
+                    <p>We will take your grievance to the desk of concerned officer and see it resolved.</p>
+                    <button type="button" class="learnMore">Learn More</button>
+                </div> -->
+                <a href="postgrievanceRural"><div class="box2">
+                    <p>Post a new Grievance</p>
+                    <img src="../static/images/addGrievance.png">
+                </div></a>
+                <a onclick="show()"><div class="box3">
+                    <p>Track Grievance</p>
+                    <img src="../static/images/trackGrievance.png">
+                </div></a>
+            </div>
+            <div class="popup">
+                <div class="title">Track Grievance</div>
+                <div class="space"></div>
+                <form action="track" method="post">
+                    <h4>Grievance number</h4>
+                    <div class="space"></div>
+                    <input type="text" name ="com_id2"placeholder="Enter Grievance number" required>
+                    <div class="space"></div>
+                    <input type="submit" name="" value="Track">
+                </form>
+            </div>
+            <!-- <div class="popup2">
+                <div class="title">Send Feedback</div>
+                <div class="space"></div>
+                <form action="user_response" method="post">
+                    <h4>Message</h4>
+                    <div class="space"></div>
+                    <input type="hidden" name="com_id_popup">
+                    <input type="text" name ="response"placeholder="Enter Response" required>
+                    <div class="space"></div>
+                    <input type="submit" name="" value="Send">
+                </form>
+            </div> -->
+            <div class="col2">
+                <h4>YOUR DASHBOARD</h4>
+                <div class="content">
+                    <div class="filters">
+                        <select>
+                            <option value="status">Status</option>
+                            <option value="pending">Pending</option>
+                            <option value="solved">Solved</option>
+                        </select>
+                        <input type="text" name="search" placeholder="Search">
+                    </div>
+                    <table class="table">
+                        <tr class="toprow">
+                            <td width="22%"><p>Grievance Number</p></td>
+                            <td width="10%"><p>Date Registered</p></td>
+                            <td width="30%"><p>Department Name</p></td>
+                            <td width="10%"><p>Status</p></td>
+                            <td width="15%"><p>Track Grievance</p></td>
+                            <td width="15%"><p>Submit Feedback</p></td>
+                        </tr>
+                        <form action="track2" method="post" id="myform">
+                            <input type="text" name="com_id" class="invis">
+                        <% for(var i = 0; i<result1.length; i++){ %>
+                            <tr class="data" id=<%= i%>>
+                                <td width="18%"><p class="greivanceNumber"><%= result1[i].complaint_id%></p></td>
+                                <td width="16%"><p id="dateRegistered"><%= result1[i].complaint_date%></p></td>
+                                <td width="25%"><p id="department"><%= result1[i].department_name%></p></td>
+                                <% if(result1[i].solved == 1){ %>
+                                    <td width="12%"><button type="button" class="status">Solved</button></td>
+                                <%}else{ %>
+                                    <td width="12%"><button type="button" class="status">Pending</button></td>
+                                <%} %>                                
+                                <td width="15%"><a onclick="check(this.parentNode.parentNode)"><img src="../static/images/trackGrievance.png"></a></td>
+                                <td width="10%"><a a="#"><img src="../static/images/feedback.png"></a></td>
+                            </tr>
+                        <% } %>
+                        </form>
+                        </table>        
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
